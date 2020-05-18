@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置 mybatis 的环境 -->
+    <environments default="mysql">
+        <!-- 配置 mysql 的环境 -->
+        <environment id="mysql">
+            <!-- 配置事务的类型 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置连接数据库的信息：用的是数据源(连接池) -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf8"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="123456"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 告知 mybatis 映射配置的位置 ,映射配置文件指每个dao的独立的配置文件
+    <mapper resource="com/medlinker/dao/UserDao.xml"/>
+        如果此处用注解来配置的话，此处使用class属性指定被注解是的dao全限定类名
+                <mapper class="com.medlinker.dao.UserDao"/>
+    -->
+    <mappers>
+        <package name ="com.medlinker.dao"/>
+    </mappers>
+
+</configuration>
+
+
